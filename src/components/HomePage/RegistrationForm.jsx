@@ -24,7 +24,7 @@ const RegistrationForm = () => {
   const fetchServices = async () => {
     try {
       const response = await serviceApi.getServices();
-      setServices(response.data);
+      setServices(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error("Error fetching service:", error);
     }
